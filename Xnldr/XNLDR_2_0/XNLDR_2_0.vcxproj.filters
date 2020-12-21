@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{e530f0e2-ee8c-423f-9472-a8710a9d0df1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Xnldr">
+      <UniqueIdentifier>{4e2183ba-0a30-40ff-ab10-159deb8932d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lib">
+      <UniqueIdentifier>{d6c591b6-15f5-4019-996b-a6b15fb0bd50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Xnldr\Mem">
+      <UniqueIdentifier>{489a59ab-3e78-46c7-b0a8-90f6fef3ae87}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Xnldr\Xeneva">
+      <UniqueIdentifier>{d315e62d-75ae-49b9-9a69-be832a31f338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Stdlib">
+      <UniqueIdentifier>{acc1f2fe-79ed-454a-a9e4-50b1bd87feb0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\Stdlib\Stdint.h">
+      <Filter>Include\Stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Stdlib\Va_list.h">
+      <Filter>Include\Stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Stdlib\String.h">
+      <Filter>Include\Stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Stdlib\Float.h">
+      <Filter>Include\Stdlib</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Xnldr\Main.cpp">
+      <Filter>Xnldr</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
