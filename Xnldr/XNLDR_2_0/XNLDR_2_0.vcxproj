@@ -99,7 +99,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <OutputFile>E:\EFI\BOOT\BOOTx64.efi</OutputFile>
+      <OutputFile>D:\EFI\BOOT\BOOTx64.efi</OutputFile>
       <AdditionalDependencies />
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <EnableUAC>false</EnableUAC>
@@ -141,12 +141,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Console.h" />
+    <ClInclude Include="Include\EfiLib.h" />
+    <ClInclude Include="Include\Stdlib\CType.h" />
     <ClInclude Include="Include\Stdlib\Float.h" />
+    <ClInclude Include="Include\Stdlib\Limits.h" />
+    <ClInclude Include="Include\Stdlib\Stdarg.h" />
     <ClInclude Include="Include\Stdlib\Stdint.h" />
+    <ClInclude Include="Include\Stdlib\Stdio.h" />
     <ClInclude Include="Include\Stdlib\String.h" />
     <ClInclude Include="Include\Stdlib\Va_list.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Lib\Stdio.cpp" />
+    <ClCompile Include="Lib\String.cpp" />
+    <ClCompile Include="Xnldr\Console.cpp" />
+    <ClCompile Include="Xnldr\EfiLib.cpp" />
     <ClCompile Include="Xnldr\Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

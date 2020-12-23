@@ -12,6 +12,8 @@
 
 #include <Include/Stdlib/Stdint.h>
 #include <Include/Uefi/Uefi.h>
+#include <Include/EfiLib.h>
+#include <Include/Console.h>
 
 
 /**
@@ -24,8 +26,24 @@
  */
 EFI_STATUS  XnMain (EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE* SystemTable)
 {
-	/* return the success code */
-	return EFI_SUCCESS; 
+
+	/* Initialize our UEFI Library */
+	InitializeEfiLib (ImageHandle, SystemTable);
+
+	/* 
+	   Clear the screen and enable the cursor
+	   for now there is no print function 
+	   */
+	ClearScreen ();
+	EnableCursor (true);
+
+
+
+	/* Go into infinite loop */
+	Loop ();
+
+	/* return the EFI_SUCCESS code */
+	return EFI_SUCCESS;
 }
 
 

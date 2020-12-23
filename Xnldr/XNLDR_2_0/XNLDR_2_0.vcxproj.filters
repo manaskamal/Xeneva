@@ -33,9 +33,39 @@
     <ClInclude Include="Include\Stdlib\Float.h">
       <Filter>Include\Stdlib</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Stdlib\CType.h">
+      <Filter>Include\Stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Stdlib\Limits.h">
+      <Filter>Include\Stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\EfiLib.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Stdlib\Stdarg.h">
+      <Filter>Include\Stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Stdlib\Stdio.h">
+      <Filter>Include\Stdlib</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Console.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Xnldr\Main.cpp">
+      <Filter>Xnldr</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\String.cpp">
+      <Filter>Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Xnldr\EfiLib.cpp">
+      <Filter>Xnldr</Filter>
+    </ClCompile>
+    <ClCompile Include="Lib\Stdio.cpp">
+      <Filter>Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="Xnldr\Console.cpp">
       <Filter>Xnldr</Filter>
     </ClCompile>
   </ItemGroup>
