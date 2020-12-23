@@ -20,4 +20,4 @@ compatible with GCC and other compilers.
 
  
 Manas Kamal Choudhury
-North-East Assam, India
+Assam
