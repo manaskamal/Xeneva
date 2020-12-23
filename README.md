@@ -12,5 +12,6 @@
 --> Xeneva will be a completely modern operating system 
 --> Let's see how it goes on....... it will take times...let's be patient 
                   
-                  --By Manas Kamal Choudhury, North-East Assam, India
+
+                  --By Manas Kamal Choudhury,Assam
                   
