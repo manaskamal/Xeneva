@@ -139,6 +139,43 @@ char* strchr (char *str, int character )
 	return 0;
 }
 
+/*
+ * locates first occurance of character in string
+ *
+ * @param s -- String 
+ * @param c -- Character to check
+ */
+wchar_t *wstrchr(wchar_t *s, int c) {
+	while (*s) {
+		if(*s == c)
+			return s;
+		s++;
+	}
+
+	return 0;
+}
+
+/*
+ *  Returns the length of String
+ *
+ *  @param s -- Input String
+ *
+ */
+int wstrlen(wchar_t *s) {
+	int i = 0;
+	while (*s)
+		i++, s++;
+	return i;
+}
+
+/**
+ * return the size of string
+ * 
+ * @param s -- input string
+ */
+uint32_t wstrsize(wchar_t *s) {
+	return (wstrlen(s) + 1) * sizeof(wchar_t);
+}
 
 /** ================================================================
  **  END OF String.cpp

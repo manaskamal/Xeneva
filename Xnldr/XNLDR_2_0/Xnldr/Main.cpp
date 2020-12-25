@@ -14,7 +14,21 @@
 #include <Include/Uefi/Uefi.h>
 #include <Include/EfiLib.h>
 #include <Include/Console.h>
+#include <Include/Xeneva.h>
+#include <Include/Memory.h>
 
+/* Xeneva boot info structure */
+
+static XENEVA_INFO *info;
+
+
+/**
+ * Return the Xeneva Info 
+ */
+XENEVA_INFO* GetXenevaInfo ()
+{
+	return info;
+}
 
 /**
  * XnMain -- Main Entry point of Xnldr v2.0
@@ -24,6 +38,7 @@
  *
  * @return CODE
  */
+
 EFI_STATUS  XnMain (EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE* SystemTable)
 {
 
@@ -37,8 +52,16 @@ EFI_STATUS  XnMain (EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE* SystemTable)
 	ClearScreen ();
 	EnableCursor (true);
 
+	SetTextColor (EFI_BACKGROUND_BLACK, EFI_LIGHTGRAY);
+	Printf (L"Xnldr v2.0 \r\n");
+	Printf (L"Version 2.0 \r\n");
 
-
+	/* Print a message for user to wait */
+	Printf (L"Please Wait... \r\n");
+   
+	//! Scan physical memory for use
+	GetMemory ();
+	
 	/* Go into infinite loop */
 	Loop ();
 

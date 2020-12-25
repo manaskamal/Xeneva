@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClInclude Include="Include\Console.h" />
     <ClInclude Include="Include\EfiLib.h" />
+    <ClInclude Include="Include\Memory.h" />
     <ClInclude Include="Include\Stdlib\CType.h" />
     <ClInclude Include="Include\Stdlib\Float.h" />
     <ClInclude Include="Include\Stdlib\Limits.h" />
@@ -151,6 +152,8 @@
     <ClInclude Include="Include\Stdlib\Stdio.h" />
     <ClInclude Include="Include\Stdlib\String.h" />
     <ClInclude Include="Include\Stdlib\Va_list.h" />
+    <ClInclude Include="Include\Video.h" />
+    <ClInclude Include="Include\Xeneva.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lib\Stdio.cpp" />
@@ -158,6 +161,7 @@
     <ClCompile Include="Xnldr\Console.cpp" />
     <ClCompile Include="Xnldr\EfiLib.cpp" />
     <ClCompile Include="Xnldr\Main.cpp" />
+    <ClCompile Include="Xnldr\Mem\Memory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

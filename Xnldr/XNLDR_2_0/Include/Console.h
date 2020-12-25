@@ -23,9 +23,10 @@
 
 extern "C" void  ClearScreen ();
 extern "C" EFI_STATUS EnableCursor (bool on);
-/**extern "C" EFI_STATUS GetCurrentCursorPos (int *Col, int *Row);
+extern "C" EFI_STATUS GetCurrentCursorPos (int *Col, int *Row);
 extern "C" EFI_STATUS SetCurrentCursorPos (int Col, int Row);
-extern "C" int  Printf (const char* fmt, ...);**/
+extern "C" EFI_STATUS SetTextColor (const int Back, const int Fore);
+extern "C" int  Printf (wchar_t* fmt, ...);
 
 #endif
 /**

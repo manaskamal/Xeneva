@@ -14,6 +14,8 @@
 #ifndef __STRING_H__
 #define __STRING_H__
 
+#include <Include/Stdlib/Stdint.h>
+
 /* maximum string length is 4096 */
 #define MAX_STRING_LENGTH   4095
 
@@ -37,6 +39,10 @@ extern "C" void* memcpy (void *dest, const void *src, size_t count);
 extern "C" void* memset (void *dest, char val, size_t count);
 extern "C" unsigned short* memsetw (unsigned short *dest, unsigned short val, size_t count);
 
+
+extern "C" wchar_t *wstrchr(wchar_t *s, int c);
+extern "C" int  wstrlen(wchar_t *s);
+extern "C" uint32_t wstrsize(wchar_t *s);
 
 /**
  * For now, this much is sufficient

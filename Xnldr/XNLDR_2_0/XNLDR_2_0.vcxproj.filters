@@ -51,6 +51,15 @@
     <ClInclude Include="Include\Console.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="Include\Xeneva.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Memory.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Video.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Xnldr\Main.cpp">
@@ -67,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="Xnldr\Console.cpp">
       <Filter>Xnldr</Filter>
+    </ClCompile>
+    <ClCompile Include="Xnldr\Mem\Memory.cpp">
+      <Filter>Xnldr\Mem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
