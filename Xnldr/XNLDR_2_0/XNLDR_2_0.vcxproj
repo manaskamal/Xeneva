@@ -51,6 +51,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\nasm.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -142,8 +143,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Include\Console.h" />
+    <ClInclude Include="Include\ConsoleFont.h" />
     <ClInclude Include="Include\EfiLib.h" />
+    <ClInclude Include="Include\File.h" />
     <ClInclude Include="Include\Memory.h" />
+    <ClInclude Include="Include\Pe.h" />
+    <ClInclude Include="Include\PSF2Font.h" />
     <ClInclude Include="Include\Stdlib\CType.h" />
     <ClInclude Include="Include\Stdlib\Float.h" />
     <ClInclude Include="Include\Stdlib\Limits.h" />
@@ -152,7 +157,9 @@
     <ClInclude Include="Include\Stdlib\Stdio.h" />
     <ClInclude Include="Include\Stdlib\String.h" />
     <ClInclude Include="Include\Stdlib\Va_list.h" />
+    <ClInclude Include="Include\TerminalPSF.h" />
     <ClInclude Include="Include\Video.h" />
+    <ClInclude Include="Include\VirtualMemory.h" />
     <ClInclude Include="Include\Xeneva.h" />
   </ItemGroup>
   <ItemGroup>
@@ -160,10 +167,24 @@
     <ClCompile Include="Lib\String.cpp" />
     <ClCompile Include="Xnldr\Console.cpp" />
     <ClCompile Include="Xnldr\EfiLib.cpp" />
+    <ClCompile Include="Xnldr\File.cpp" />
     <ClCompile Include="Xnldr\Main.cpp" />
     <ClCompile Include="Xnldr\Mem\Memory.cpp" />
+    <ClCompile Include="Xnldr\Mem\VirtualMemory.cpp" />
+    <ClCompile Include="Xnldr\Pe.cpp" />
+    <ClCompile Include="Xnldr\PSF2Font.cpp" />
+    <ClCompile Include="Xnldr\TerminalPSF.cpp" />
+    <ClCompile Include="Xnldr\Video.cpp" />
+    <ClCompile Include="Xnldr\Xeneva\ConsoleFont.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <NASM Include="Xnldr\Xeneva\sys_x64.asm">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <FileType>Document</FileType>
+    </NASM>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\nasm.targets" />
   </ImportGroup>
 </Project>

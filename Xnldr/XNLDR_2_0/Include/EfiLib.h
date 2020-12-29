@@ -41,6 +41,13 @@ EFI_BOOT_SERVICES      *GetBootServices ();
 EFI_RUNTIME_SERVICES*   GetRuntimeServices ();
 void                    Loop ();
 
+/**
+ * Wait for a key stroke
+ *
+ * @param Key -- KeyCode that user recently pressed
+ *
+ */
+EFI_STATUS GetKeyStroke(EFI_INPUT_KEY *Key);
 
 #endif
 

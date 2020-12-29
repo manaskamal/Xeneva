@@ -60,6 +60,24 @@
     <ClInclude Include="Include\Video.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="Include\PSF2Font.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\File.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ConsoleFont.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\TerminalPSF.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\VirtualMemory.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Pe.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Xnldr\Main.cpp">
@@ -80,5 +98,31 @@
     <ClCompile Include="Xnldr\Mem\Memory.cpp">
       <Filter>Xnldr\Mem</Filter>
     </ClCompile>
+    <ClCompile Include="Xnldr\Video.cpp">
+      <Filter>Xnldr</Filter>
+    </ClCompile>
+    <ClCompile Include="Xnldr\File.cpp">
+      <Filter>Xnldr</Filter>
+    </ClCompile>
+    <ClCompile Include="Xnldr\PSF2Font.cpp">
+      <Filter>Xnldr</Filter>
+    </ClCompile>
+    <ClCompile Include="Xnldr\Xeneva\ConsoleFont.cpp">
+      <Filter>Xnldr\Xeneva</Filter>
+    </ClCompile>
+    <ClCompile Include="Xnldr\TerminalPSF.cpp">
+      <Filter>Xnldr</Filter>
+    </ClCompile>
+    <ClCompile Include="Xnldr\Mem\VirtualMemory.cpp">
+      <Filter>Xnldr\Mem</Filter>
+    </ClCompile>
+    <ClCompile Include="Xnldr\Pe.cpp">
+      <Filter>Xnldr</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <NASM Include="Xnldr\Xeneva\sys_x64.asm">
+      <Filter>Xnldr\Xeneva</Filter>
+    </NASM>
   </ItemGroup>
 </Project>

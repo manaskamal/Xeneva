@@ -14,6 +14,8 @@
 #include <Include/EfiLib.h>
 #include <Include/Console.h>
 
+UINTN MapKey;
+uint64_t Mem_Map_Key = 0;
 /**
  * Pool Allocate 
  *
@@ -49,15 +51,15 @@ EFI_STATUS GetMemory ()
 
 	EFI_STATUS status = EFI_SUCCESS;
 
-	uint32_t Mem_Map_Size = sizeof (EFI_MEMORY_DESCRIPTOR) * 16;
-	uint32_t Mem_Map_Size_Out = Mem_Map_Size;
-	uint32_t Mem_Map_Key = 0;
-	uint32_t Mem_Map_Descriptor_Size = 0;
+	uint64_t Mem_Map_Size = sizeof (EFI_MEMORY_DESCRIPTOR) * 16;
+	uint64_t Mem_Map_Size_Out = Mem_Map_Size;
+	
+	uint64_t Mem_Map_Descriptor_Size = 0;
 	uint32_t Mem_Map_Descriptor_Version = 0;
 	uint32_t Descriptor_count = 0;
 	uint32_t i = 0;
 	int32_t  j = 48;
-	uint8_t *buffer = nullptr;
+	EFI_MEMORY_DESCRIPTOR *buffer = nullptr;
 	EFI_MEMORY_DESCRIPTOR *Mem_Descriptor_Ptr = nullptr;
 	EFI_INPUT_KEY key;
 	uint16_t mem_blocks = 0;
@@ -67,14 +69,13 @@ EFI_STATUS GetMemory ()
 	 */
 	do
 	{
-		buffer = (uint8_t*)AllocatePool (Mem_Map_Size);
+		buffer = (EFI_MEMORY_DESCRIPTOR*)AllocatePool (Mem_Map_Size);
 		
-		if (buffer == nullptr)
-			break;
+		
 
 		/* Call UEFI Memory Map service */
-		status = gBootServices->GetMemoryMap ((size_t*)&Mem_Map_Size_Out, (EFI_MEMORY_DESCRIPTOR*)buffer, (size_t*)&Mem_Map_Key,
-			(size_t*)&Mem_Map_Descriptor_Size, (UINT32*)&Mem_Map_Descriptor_Version);
+		status = gBootServices->GetMemoryMap (&Mem_Map_Size_Out, buffer, &Mem_Map_Key,
+			&Mem_Map_Descriptor_Size, &Mem_Map_Descriptor_Version);
 
 		if (EFI_ERROR (status))
 		{
@@ -84,6 +85,7 @@ EFI_STATUS GetMemory ()
 
 	} while (EFI_ERROR(status));
 
+	
 	/* Now check if buffer is available or not */
 	if (buffer != nullptr)
 	{
@@ -118,6 +120,8 @@ EFI_STATUS GetMemory ()
 			     mem_blocks++;
 			}
 		}
+
+		MapKey = Mem_Map_Key;
        
 		/**
 		 * We are done now Free the pool
@@ -136,3 +140,11 @@ EFI_STATUS GetMemory ()
 	/* return EFI_SUCCESS code */
 	return EFI_SUCCESS;
 }
+
+ /**
+  * Return EFI MEMORY MAP KEY
+  */
+uint32_t GetMapKey ()
+ {
+	 return Mem_Map_Key;
+ }

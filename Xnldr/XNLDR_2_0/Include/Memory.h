@@ -48,4 +48,8 @@ extern "C" void *AllocatePool (const size_t MemSize);
  */
 extern "C" void FreePool (void *buffer);
 
+/**
+ * return Map Key
+ */
+extern "C"  uint32_t GetMapKey ();
 #endif

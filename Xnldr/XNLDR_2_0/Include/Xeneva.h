@@ -101,12 +101,22 @@ typedef struct __BOOT_INFO__
 		 * Physical Address of Video Screen
 		 */
 		size_t PhysicalAddress;
+
+		/**
+	     * Color Properties
+	     */
+	    uint32_t Red;
+	    uint32_t Blue;
+	    uint32_t Green;
+	    uint32_t  Resv;
 	} Video;
+
+	void (*ConsoleOut)(const char *text);
 
 	/**
 	 * ACPI RSDP Address, from EfiLib
 	 */
-	size_t ACPIRsdp;
+	void* ACPIXsdp;
 
 	/**
 	 * Virtual Memory PML4 Address
@@ -122,7 +132,92 @@ typedef struct __BOOT_INFO__
 	char Bootloader_Name[8];
 }XENEVA_INFO;
 
-
-
+/**
+ * Return the Xeneva Boot Information Structure
+ */
 extern "C" XENEVA_INFO* GetXenevaInfo ();
+
+/**
+ * Kernel Entry point extraction
+ *
+ * @param Info -- Xeneva Boot Information Structure to pass to
+ */
+typedef void(*KernelEntry)(XENEVA_INFO *Info);
+
+/** Define Some RAW function @Reference XNLDR 1.0 **/
+#ifdef __cplusplus
+#define EXTERN extern "C"
+#else
+#define EXTERN
+#endif
+/* Template class */
+#ifdef __cplusplus
+extern "C++" {
+	template <class T, class U> intptr_t raw_diff(T* p1, U* p2)
+	{
+		return (intptr_t)p1 - (intptr_t)p2;
+	}
+	template <class T, class U> T raw_offset(U p1, const intptr_t offset)
+	{
+		return (T) ((size_t)p1 + offset);
+	}
+	template <class T, class U> T mem_after(U* p1)
+	{
+		return (T) (&p1[1]);
+	}
+}
+#else
+#define RAW_OFFSET(type, x, offset)  (type)((size_t)x + offset)
+#endif
+// ----------------------------------------------------------------------
+
+#define SIZE_MAX UINTPTR_MAX
+/**
+ * Get Paging Root i.e PML4
+ */
+extern "C" void* GetPagingRoot ();
+
+/**
+ * Memory Barrier
+ */
+extern "C" void MemoryBarrier ();
+
+/**
+ * SetPagingRoot i.e PML4
+ *
+ * @param Root -- PML4 address
+ */
+extern "C" void SetPagingRoot (void* Root);
+
+/**
+ * Call the Kernel
+ *
+ * @param Param -- Boot Information Structure
+ * @param Entry -- Kernel Entry Point
+ * @param Stack -- Stack address
+ * @param StackSize -- Size of the Stack for the Kernel
+ */
+extern "C" void CallKernel (void* Param, void *Entry, void* Stack, size_t StackSize);
+
+/**
+ * Read the value from CR0 Register
+ */
+extern "C" size_t ReadCR0();
+
+/**
+ * Write the value to CR0 Register
+ *
+ * @param Value -- Value to write
+ *
+ */
+extern "C" void   WriteCR0(size_t Value);
+
+/**
+ * Write the new page to TLB, so that we don't miss the page
+ * next time we need it. else Page Fault
+ *
+ * @param Addr -- Address of the Page
+ */
+extern "C" void TLBFlush(void* Addr);
+
 #endif

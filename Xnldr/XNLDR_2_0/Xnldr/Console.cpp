@@ -14,7 +14,7 @@
 #include <Include/EfiLib.h>
 #include <Include/Stdlib/Stdio.h>
 #include <Include/Stdlib/Stdint.h>
-
+#include <Include/Video.h>
 
 /**
  * Clear the current screen
@@ -350,6 +350,8 @@ int Printf(wchar_t *fmt, ...) {
 			}
 
 	out[o++] = 0;
+	
+	
 	gSystemTable->ConOut->OutputString(gSystemTable->ConOut, out);
 	return 0;
 }

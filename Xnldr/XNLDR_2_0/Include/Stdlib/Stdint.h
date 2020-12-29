@@ -64,7 +64,7 @@ typedef long long intmax_t;
 typedef unsigned long long uintmax_t;
 
 /* Limits of specified-width integer types */
-#if !defined (__cplusplus) || defined (__STDC_LIMIT_MACROS)
+#if defined (__cplusplus) || defined (__STDC_LIMIT_MACROS)
 
 /* Limits of exact-width integer types */
 #define INT8_MIN  (-128)
